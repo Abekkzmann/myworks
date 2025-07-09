@@ -18,3 +18,19 @@ resource "aws_instance" "example" {
   ami           = "ami-0c55b1e0b2927010a"
   instance_type = "t2.micro"
 }
+
+# main.tf
+resource "aws_instance" "example" {
+  ami           = "ami-0c55b147370516a98" # Replace with a valid AMI ID
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "Example Instance"
+  }
+}
+
+output "instance_public_ip" {
+  value = aws_instance.example.public_ip
+}
+
+
